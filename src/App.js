@@ -39,7 +39,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tier: '',
       id: 0,
       username: '',
       password: ''
@@ -68,7 +67,6 @@ class App extends React.Component {
       },
       body: JSON.stringify({
         id: this.state.id,
-        tier: this.state.tier,
       })
     }).then(response => response.json())
     .then(data => 
@@ -84,7 +82,6 @@ class App extends React.Component {
         </div>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '200px'}}>
           <input className='padding' type='number' placeholder='id' value={this.state.id} name='id' onChange={this.handleChange}/>
-          <input className='padding' type='text' placeholder='tier' value={this.state.tier} name='tier' onChange={this.handleChange}/>
           <input className='padding' type='text' placeholder='username' value={this.state.username} name='username' onChange={this.handleChange}/>
           <input className='padding' type='password' placeholder='password' value={this.state.password} name='password' onChange={this.handleChange}/>
           <Button onClick={this.login}>Login</Button>
