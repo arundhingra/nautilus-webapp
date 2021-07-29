@@ -79,8 +79,9 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <div>
+        <div className='home__background-divider'></div>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px'}}>
-          <h1>Nautilus Update Request Page</h1>
+          <h1 style={{color: 'white', fontFamily: 'monospace'}}>Nautilus Update Request Page</h1>
         </div>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '150px'}}>
           <Form>
@@ -122,7 +123,7 @@ class App extends React.Component {
                     value={this.state.id}
                     type='number'
                   />
-                  <Button variant='dark' size='lg' onClick={this.login}>Login</Button>
+                  <Button variant='dark' size='lg' onClick={this.login} fontFamily='monospace'>Login</Button>
                 </InputGroup>       
               </Col>
             </Row>
