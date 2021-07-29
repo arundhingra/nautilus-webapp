@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import Amplify, { Auth } from 'aws-amplify';
-import { Button } from 'react-bootstrap';
+import { Button, InputGroup, FormControl, Form, Row, Col } from 'react-bootstrap';
 import { withAuthenticator } from '@aws-amplify/ui-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -75,16 +76,57 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <h1>Nautilus Request Page</h1>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px'}}>
+          <h1>Nautilus Update Request Page</h1>
         </div>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '200px'}}>
-          <input className='padding' type='number' placeholder='id' value={this.state.id} name='id' onChange={this.handleChange}/>
-          <input className='padding' type='text' placeholder='username' value={this.state.username} name='username' onChange={this.handleChange}/>
-          <input className='padding' type='password' placeholder='password' value={this.state.password} name='password' onChange={this.handleChange}/>
-          <Button onClick={this.login}>Login</Button>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '150px'}}>
+          <Form>
+            <Row>
+              <Col sm={20}>
+                <InputGroup className="mb-3">
+                  <FormControl
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    name='username'
+                    onChange={this.handleChange}
+                    value={this.state.username}
+                  />
+                </InputGroup>
+              </Col>
+              <Col sm={20}>
+                <InputGroup className="mb-3">
+                  <FormControl
+                    placeholder="Password"
+                    aria-label="Password"
+                    aria-describedby="basic-addon1"
+                    name='password'
+                    onChange={this.handleChange}
+                    value={this.state.password}
+                    type='password'
+                  />
+                </InputGroup>
+              </Col>
+              <Col sm={20}>
+                <InputGroup className="mb-3">
+                  <InputGroup.Text>ID</InputGroup.Text>
+                  <FormControl
+                    placeholder="User ID"
+                    aria-label="User ID"
+                    aria-describedby="basic-addon1"
+                    name='id'
+                    onChange={this.handleChange}
+                    value={this.state.id}
+                    type='number'
+                  />
+                  <Button variant='dark' size='lg' onClick={this.login}>Login</Button>
+                </InputGroup>       
+              </Col>
+            </Row>
+          </Form>
         </div>
       </div>
     );
