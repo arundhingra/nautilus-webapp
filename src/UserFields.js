@@ -88,7 +88,7 @@ class UserFields extends React.Component {
     
         const jwt = user['signInUserSession']['accessToken']['jwtToken']
     
-        const error = await fetch('https://406kjrtu2d.execute-api.us-east-1.amazonaws.com/test/error', {
+        const error = await fetch(concat(process.env.REACT_APP_API_GWAY, '/error'), {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
