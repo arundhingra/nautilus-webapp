@@ -6,13 +6,13 @@ import NautilusAlert from './NautilusAlert'
 Amplify.configure({
     Auth: {
         // REQUIRED - Amazon Cognito Region
-        region: REACT_APP_REGION,
+        region: process.env.REACT_APP_REGION,
 
         // OPTIONAL - Amazon Cognito User Pool ID
-        userPoolId: REACT_APP_UP_ID,
+        userPoolId: process.env.REACT_APP_UP_ID,
 
         // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-        userPoolWebClientId: REACT_APP_UPWC_ID,
+        userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
 
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
         mandatorySignIn: false,
@@ -22,7 +22,7 @@ Amplify.configure({
 
          // OPTIONAL - Hosted UI configuration
         oauth: {
-            domain: REACT_APP_DOM,
+            domain: process.env.REACT_APP_DOM,
             scope: ['phone', 'email', 'profile', 'openid', 'aws.cognito.signin.user.admin'],
             redirectSignIn: 'http://example.com/',
             redirectSignOut: 'http://localhost:3000/',
