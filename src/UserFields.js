@@ -5,14 +5,11 @@ import NautilusAlert from './NautilusAlert'
 
 Amplify.configure({
     Auth: {
-        // REQUIRED - Amazon Cognito Region
         region: process.env.REACT_APP_REGION,
-
-        // OPTIONAL - Amazon Cognito User Pool ID
         userPoolId: process.env.REACT_APP_UP_ID,
-
-        // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
         userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
+
+
 
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
         mandatorySignIn: false,
@@ -73,6 +70,7 @@ class UserFields extends React.Component {
           },
           body: JSON.stringify({
             id: this.state.id,
+            error: 'false'
           })
         }).then(response => response.json())
         .then(data => 
@@ -88,7 +86,7 @@ class UserFields extends React.Component {
     
         const jwt = user['signInUserSession']['accessToken']['jwtToken']
     
-        const error = await fetch(process.env.REACT_APP_API_GWAY.concat('/error'), {
+        const error = await fetch(process.env.REACT_APP_API_GWAY, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -96,10 +94,11 @@ class UserFields extends React.Component {
           },
           body: JSON.stringify({
             id: this.state.id,
+            error: 'true'
           })
         }).then(response => response.json())
         .then(data => data['statusCode'] === 500);
-        
+
         this.setState({error: error});
         this.setState({show: true});
       }
