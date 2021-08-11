@@ -10,7 +10,6 @@ Amplify.configure({
         userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
 
 
-
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
         mandatorySignIn: false,
 
@@ -69,7 +68,7 @@ class UserFields extends React.Component {
             'Authorization': jwt
           },
           body: JSON.stringify({
-            id: this.state.id,
+            id: 1,
             error: 'false'
           })
         }).then(response => response.json())
@@ -93,7 +92,7 @@ class UserFields extends React.Component {
             'Authorization': jwt
           },
           body: JSON.stringify({
-            id: this.state.id,
+            id: 1,
             error: 'true'
           })
         }).then(response => response.json())
@@ -130,23 +129,9 @@ class UserFields extends React.Component {
                     value={this.state.password}
                     type='password'
                   />
-                </InputGroup>
-              </Col>
-              <Col sm={20}>
-                <InputGroup className="mb-3">
-                  <InputGroup.Text>ID</InputGroup.Text>
-                  <FormControl
-                    placeholder="User ID"
-                    aria-label="User ID"
-                    aria-describedby="basic-addon1"
-                    name='id'
-                    onChange={this.handleChange}
-                    value={this.state.id}
-                    type='number'
-                  />
                   <Button variant='dark' size='lg' onClick={this.login} fontFamily='monospace'>Request Update</Button>
                   <Button variant='danger' size='lg' onClick={this.fail_login} fontFamily='monospace'>Simulate Error</Button>
-                </InputGroup>       
+                </InputGroup>
               </Col>
             </Row>
             <Row>
