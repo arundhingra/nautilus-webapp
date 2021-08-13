@@ -3,7 +3,7 @@ import { Button, InputGroup, FormControl, Form, Row, Col } from 'react-bootstrap
 import Amplify, { Auth } from 'aws-amplify';
 import NautilusAlert from './NautilusAlert'
 
-const API_GWAY = process.env.API_GWAY
+const API_GWAY = process.env.REACT_APP_API_GWAY
 
 Amplify.configure({
     Auth: {
