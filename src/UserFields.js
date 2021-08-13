@@ -3,17 +3,13 @@ import { Button, InputGroup, FormControl, Form, Row, Col } from 'react-bootstrap
 import Amplify, { Auth } from 'aws-amplify';
 import NautilusAlert from './NautilusAlert'
 
-const API_GWAY = 'https://406kjrtu2d.execute-api.us-east-1.amazonaws.com/test/'
+const API_GWAY = process.env.API_GWAY
 
 Amplify.configure({
     Auth: {
-        // region: process.env.REACT_APP_REGION,
-        // userPoolId: process.env.REACT_APP_UP_ID,
-        // userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
-
-        region: 'us-east-1',
-        userPoolId: 'us-east-1_oVLmLa59y',
-        userPoolWebClientId: '3pr9u7isskvduv2r0l41rrgdpe',
+        region: process.env.REACT_APP_REGION,
+        userPoolId: process.env.REACT_APP_UP_ID,
+        userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
 
 
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
