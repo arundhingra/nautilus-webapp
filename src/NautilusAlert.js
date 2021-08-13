@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 
 class NautilusAlert extends React.Component {
@@ -9,11 +9,7 @@ class NautilusAlert extends React.Component {
             <>
             {this.props.show ?
                 <Alert variant="danger" onClose={this.props.handleClose} dismissible>
-                    <Alert.Heading>Internal Server Error</Alert.Heading>
-                    <p>
-                        Would you like to retry?                
-                    </p>
-                    <Button variant='secondary' onClick={this.props.handleClick}>Retry</Button>
+                    <Alert.Heading>Oops, looks like we're having some trouble handling this request. We'll let you know when the issue is resolved.</Alert.Heading>
                 </Alert>
                 : <div/>}
             </>

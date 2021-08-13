@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { withAuthenticator } from '@aws-amplify/ui-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserFields from './UserFields'
 
@@ -21,4 +20,4 @@ class App extends React.Component {
   }
 }
 
-export default withAuthenticator(App);
+export default App;

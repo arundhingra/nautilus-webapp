@@ -3,11 +3,17 @@ import { Button, InputGroup, FormControl, Form, Row, Col } from 'react-bootstrap
 import Amplify, { Auth } from 'aws-amplify';
 import NautilusAlert from './NautilusAlert'
 
+const API_GWAY = 'https://406kjrtu2d.execute-api.us-east-1.amazonaws.com/test/'
+
 Amplify.configure({
     Auth: {
-        region: process.env.REACT_APP_REGION,
-        userPoolId: process.env.REACT_APP_UP_ID,
-        userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
+        // region: process.env.REACT_APP_REGION,
+        // userPoolId: process.env.REACT_APP_UP_ID,
+        // userPoolWebClientId: process.env.REACT_APP_UPWC_ID,
+
+        region: 'us-east-1',
+        userPoolId: 'us-east-1_oVLmLa59y',
+        userPoolWebClientId: '3pr9u7isskvduv2r0l41rrgdpe',
 
 
         // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
@@ -61,7 +67,7 @@ class UserFields extends React.Component {
     
         const jwt = user['signInUserSession']['accessToken']['jwtToken']
     
-        await fetch(process.env.REACT_APP_API_GWAY, {
+        await fetch(API_GWAY, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -85,7 +91,7 @@ class UserFields extends React.Component {
     
         const jwt = user['signInUserSession']['accessToken']['jwtToken']
     
-        const error = await fetch(process.env.REACT_APP_API_GWAY, {
+        const error = await fetch(API_GWAY, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -136,7 +142,7 @@ class UserFields extends React.Component {
             </Row>
             <Row>
               <Col sm={20}>
-                {this.state.error ? <NautilusAlert handleClick={this.login} show={this.state.show} handleClose={this.handleClose}/> : <div/>}
+                {this.state.error ? <NautilusAlert show={this.state.show} handleClose={this.handleClose}/> : <div/>}
               </Col>
             </Row>
           </Form>
